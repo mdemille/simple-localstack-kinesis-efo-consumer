@@ -83,7 +83,8 @@ public class Application {
       configsBuilder.lifecycleConfig(),
       configsBuilder.metricsConfig(),
       configsBuilder.processorConfig(),
-      configsBuilder.retrievalConfig()
+      configsBuilder.retrievalConfig() // Default behavior is EFO
+        //.retrievalSpecificConfig(new PollingConfig(streamName, kinesisClient)) // Uncomment this retrievalSpecificConfig to use polling
     );
 
     Thread schedulerThread = new Thread(scheduler);
