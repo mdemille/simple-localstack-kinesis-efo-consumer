@@ -1,0 +1,10 @@
+services:
+  localstack:
+    container_name: mike-test-localstack
+    image: localstack/localstack:3.4.0
+    ports:
+      - '4566:4566'
+    volumes:
+      - .localstack:/etc/localstack/init/ready.d
+    environment:
+      - 'SERVICES=kinesis,dynamodb,cloudwatch'
